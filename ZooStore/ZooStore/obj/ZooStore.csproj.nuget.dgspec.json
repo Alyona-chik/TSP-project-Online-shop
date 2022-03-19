@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\ZooStore\\ZooStore\\ZooStore.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\TSP-project-Online-shop\\ZooStore\\ZooStore\\ZooStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\ZooStore\\ZooStore\\ZooStore.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\TSP-project-Online-shop\\ZooStore\\ZooStore\\ZooStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ZooStore\\ZooStore\\ZooStore.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\TSP-project-Online-shop\\ZooStore\\ZooStore\\ZooStore.csproj",
         "projectName": "ZooStore",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ZooStore\\ZooStore\\ZooStore.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\TSP-project-Online-shop\\ZooStore\\ZooStore\\ZooStore.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ZooStore\\ZooStore\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\TSP-project-Online-shop\\ZooStore\\ZooStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,20 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.3, )"

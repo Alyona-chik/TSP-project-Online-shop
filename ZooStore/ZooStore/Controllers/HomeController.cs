@@ -29,23 +29,11 @@ namespace ZooStore.Controllers
             IConfiguration configuration = configurationBuilder.Build();
             DatabaseConnectionController oDatabaseConnectionController = new DatabaseConnectionController(configuration);
             return oDatabaseConnectionController.Index();
-
-            //SqlConnectionStringBuilder oSqlConnectionStringBuilder = new SqlConnectionStringBuilder();
-            //oSqlConnectionStringBuilder.ConnectionString = "DataSource = SLAVI,InitialCatalog = Online_Zoo_Store,UserID = PisnaMi,Password = 123456654321";
-
-
-            //SqlConnection connection = new SqlConnection(oSqlConnectionStringBuilder.ConnectionString);
-
-            //connection.Open();
-
-            //SqlCommand oSqlCommand = new SqlCommand("Select count(*) from Login", connection);
-            //int nCount = (int)oSqlCommand.ExecuteScalar();
-
-            //ViewData["Total"] = nCount;
-
-            
         }
-
+        public string Welcome()
+        {
+            return "This is the Welcome action method...";
+        }
         public IActionResult Privacy()
         {
             return View();
