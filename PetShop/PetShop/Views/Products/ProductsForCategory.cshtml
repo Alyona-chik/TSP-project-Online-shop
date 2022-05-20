@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PetShop.Models.Product>
+
+@{
+    ViewData["Title"] = "ProductsForCategory";
+}
+
+<h1>Products for your pet</h1>
+<form action="" method="post">
+    <p>
+        @if (Model.Count() == 0)
+        {
+        <p style="text-align:center" class="text-info">Sorry, our shop don't have this products</p>
+        <img style="align-items:center" src="https://cdn1.vectorstock.com/i/thumb-large/04/80/im-sorry-vector-20700480.jpg" width=30% height=30% alt="Sorry" />
+        }
+        @foreach (var item in Model)
+        {
+        <div class="column">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h4>@item.Name</h4></div>
+                <div class="card-body">
+                        @if (item.ProductType == ProductType.Food)
+                        {
+                            <img src="https://cdn.shopify.com/s/files/1/0799/5581/products/PDP_Cat_TURKEY_02_Bowl_548x768_crop_center_0bf95020-bc40-44a9-88d8-ac63f44edfc9_600x.png?v=1644698199" width=100% height=100% alt="CatFood" />
+                        } else if(item.ProductType == ProductType.Medication)
+                        {
+                            <img src="https://media2.ledevoir.com/images_galerie/nwd_1013823_823023/image.jpg" width=100% height=100% alt="CatFood" />
+                        } else if(item.ProductType == ProductType.Accessories)
+                        {
+                            <img src="https://martarc.com/wp-content/uploads/2021/10/istockphoto-1248454290-170667a.jpg" width=100% height=100% alt="CatFood" />
+                        } else if(item.ProductType == ProductType.Toy)
+                        {
+                            <img src="https://rukminim2.flixcart.com/image/612/612/ki4w0i80-0/pet-toy/j/b/v/pa-ty-215re-pet-needs-original-imafxzwadqwpapmy.jpeg?q=70" width=100% height=100% alt="CatFood" />
+                        } else if(item.ProductType == ProductType.Treat)
+                        {
+                            <img src="https://www.eatingbirdfood.com/wp-content/uploads/2021/05/peanut-butter-dog-treats-overhead-close-up.jpg" width=100% height=100% alt="CatFood" />
+                        }
+                        <p> Price: @item.Price </p>
+                    <p>
+                        <div class="d-grid gap-2">
+
+                            <button type="submit" class="btn btn-primary" name="typeButton" asp-route-id="@item.Id" asp-action="AddToCart">Add to Cart</button>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+        }
+    </p>
+
+</form>

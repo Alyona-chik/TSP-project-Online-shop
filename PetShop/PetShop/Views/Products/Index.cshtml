@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PetShop.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="cart">
+    @foreach (var item in Model)
+    {
+        switch (item.ProductType)
+        {
+            case ProductType.Food:
+                {
+                    <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                        <div class="card-header">@Html.DisplayFor(modelItem => item.Name)</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.ProductType)
+
+                                @Html.DisplayFor(modelItem => item.AnimalType)
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </p>
+                        </div>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                    break;
+                }
+            case ProductType.Accessories:
+                {
+                    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                        <div class="card-header">@Html.DisplayFor(modelItem => item.Name)</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.ProductType)
+
+                                @Html.DisplayFor(modelItem => item.AnimalType)
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </p>
+                        </div>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                    break;
+                }
+            case ProductType.Toy:
+                {
+                    <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                        <div class="card-header">@Html.DisplayFor(modelItem => item.Name)</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.ProductType)
+
+                                @Html.DisplayFor(modelItem => item.AnimalType)
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </p>
+                        </div>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                    break;
+                }
+        }
+    }
+</div>

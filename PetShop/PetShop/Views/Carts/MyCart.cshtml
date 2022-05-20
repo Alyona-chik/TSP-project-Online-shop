@@ -1,0 +1,109 @@
+﻿@model IEnumerable<PetShop.Models.CartItem>
+
+@{
+    ViewData["Title"] = "MyCart";
+}
+@{
+    int i = 1;
+    double sum = 0;
+    long CartId = 0;
+    if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+            if (CartId != 0)
+            {
+                CartId = item.CartId;
+            }
+            sum += item.Product.Price;
+        }
+    }
+}
+<form action="" method="post">
+    @if (Model.Count() == 0)
+    {
+        <div style="align-content:center; padding-left: 15%;padding-right: 15%;">
+            <p> <img src="https://www.pngkit.com/png/detail/322-3224362_sign-in-empty-cart-icon.png" alt="Success" /></p>
+
+            <h3>Oops! Your cart is empty</h3>
+            <p class="text-primary">Looks like you haven't added anything to your cart yet</p>
+            <button type="submit" class="btn btn-primary" asp-action="Category" asp-controller="Products">Shop Now</button>
+        </div>
+    }
+    else
+    {
+
+        <h1>My Cart</h1>
+
+        <h3>Products:</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        №
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product.ProductType)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @(i++)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductType)
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-controller="CartItems" asp-route-id="@item.Id">Delete</a><br>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p />
+        <table class="table">
+
+            <tbody>
+            <thead>
+            </thead>
+            <th></th>
+            <tr>
+
+                <td>
+                    <h6>Total:  @sum</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h6> Quantity product in your cart:  @Model.Count()</h6>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+        @if (Model.Count() != 0)
+        {
+            <button type="submit" class="btn btn-success" asp-route-CartId="@Model.First().CartId" asp-controller="Orders" asp-action="OrderSubmitted">Order</button>
+        }
+
+    }
+</form>
